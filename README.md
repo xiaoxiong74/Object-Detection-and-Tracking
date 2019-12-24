@@ -1,13 +1,11 @@
 # YOLOv3 + Deep_SORT
+YOLOv3 + Deep_SORT 实现多类多目标检测(计数)
+<img src="https://github.com/xiaoxiong74/Object-Detection-and-Tracking/output/result.png" width="80%" height="80%"> 
+<img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/OneStage/yolo/yolo_img/output_person_315_1120_s.gif" width="40%" height="40%"> 
 
-<img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/output.gif" width="40%" height="40%"> <img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/TownCentreXVID_output.gif" width="40%" height="40%">
-<img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/OneStage/yolo/yolo_img/output_person_315_1120_s.gif" width="40%" height="40%"> <img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/img/output_car_143.gif" width="40%" height="40%">
-
-__Object Tracking & Counting Demo - [[YouTube]](https://www.youtube.com/watch?v=ALw3OfrGWGo) [[BiliBili_V1]](https://www.bilibili.com/video/av55778717) [[BiliBili_V2]](https://www.bilibili.com/video/av59547404)  [[Chinese Version]](https://blog.csdn.net/weixin_38107271/article/details/96741706)__
 ## Requirement
-__Development Environment: [Deep-Learning-Environment-Setup](https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup)__ 
-
 * OpenCV
+* keras
 * NumPy
 * sklean
 * Pillow
@@ -16,7 +14,7 @@ __Development Environment: [Deep-Learning-Environment-Setup](https://github.com/
 
 It uses:
 
-* __Detection__: [YOLOv3](https://github.com/yehengchen/ObjectDetection/tree/master/OneStage/yolo/yolov3) to detect objects on each of the video frames. - 用自己的数据训练YOLOv3模型
+* __Detection__: [YOLOv3](https://github.com/qqwweee/keras-yolo3) to detect objects on each of the video frames. - 用自己的数据训练YOLOv3模型
 
 * __Tracking__: [Deep_SORT](https://github.com/nwojke/deep_sort) to track those objects over different frames.
 
@@ -30,7 +28,7 @@ __0.Requirements__
     
 __1. Download the code to your computer.__
     
-    git clone https://github.com/yehengchen/Object-Detection-and-Tracking.git
+    git clone https://github.com/xiaoxiong74/Object-Detection-and-Tracking.git
     
 __2. Download [[yolov3.weights]](https://pjreddie.com/media/files/yolov3.weights)__ and place it in `deep_sort_yolov3/model_data/`
 
