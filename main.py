@@ -106,9 +106,9 @@ def main(yolo):
             indexIDs.append(int(track.track_id))
             print("relal class:" + class_name[0])
             # 分别保存每个类别的track_id
-            if class_name == ['cup']:
+            if class_name == ['person']:
                 counter1.append(int(track.track_id))
-            if class_name == ['mouse']:
+            if class_name == ['bicycle']:
                 counter2.append(int(track.track_id))
             color = [int(c) for c in COLORS[indexIDs[i] % len(COLORS)]]
             bbox = track.to_tlbr()
@@ -120,7 +120,7 @@ def main(yolo):
             # 显示类别
             cv2.putText(frame, str(class_name), (int(bbox[0]), int(bbox[1] - 20)), 0, 5e-3 * 150, (color), 2)
             # 当前画面中的每个类别单独计数
-            if class_name == ['cup']:
+            if class_name == ['person']:
                 i1 = i1 +1
             else:
                 i2 = i2 +1
@@ -143,10 +143,10 @@ def main(yolo):
         # 统计每类物品的总数
         count1 = len(set(counter1))
         count2 = len(set(counter2))
-        cv2.putText(frame, "Total cup Counter: "+str(count1),(int(20), int(120)),0, 5e-3 * 100, (0,255,0),2)
-        cv2.putText(frame, "Current cup Counter: "+str(i1),(int(20), int(100)),0, 5e-3 * 100, (0,255,0),2)
-        cv2.putText(frame, "Total mouse Counter: "+str(count2),(int(20), int(80)),0, 5e-3 * 100, (0,255,0),2)
-        cv2.putText(frame, "Current mouse Counter: "+str(i2),(int(20), int(60)),0, 5e-3 * 100, (0,255,0),2)
+        cv2.putText(frame, "Total person Counter: "+str(count1),(int(20), int(120)),0, 5e-3 * 100, (0,255,0),2)
+        cv2.putText(frame, "Current person Counter: "+str(i1),(int(20), int(100)),0, 5e-3 * 100, (0,255,0),2)
+        cv2.putText(frame, "Total bicycle Counter: "+str(count2),(int(20), int(80)),0, 5e-3 * 100, (0,255,0),2)
+        cv2.putText(frame, "Current bicycle Counter: "+str(i2),(int(20), int(60)),0, 5e-3 * 100, (0,255,0),2)
         cv2.putText(frame, "FPS: %f"%(fps),(int(20), int(40)),0, 5e-3 * 100, (0,255,0),3)
         # cv2.namedWindow("YOLO3_Deep_SORT", 0);
         # cv2.resizeWindow('YOLO3_Deep_SORT', 1024, 768);
@@ -172,8 +172,8 @@ def main(yolo):
     end = time.time()
 
     if len(pts[track.track_id]) != None:
-       print(args["input"][-13:-4] + ": " + str(count1) + " " + 'cup Found')
-       print(args["input"][-13:-4] + ": " + str(count2) + " " + 'mouse Found')
+       print(args["input"][-13:-4] + ": " + str(count1) + " " + 'person Found')
+       print(args["input"][-13:-4] + ": " + str(count2) + " " + 'bicycle Found')
 
     else:
        print("[No Found]")

@@ -126,7 +126,7 @@ class YOLO(object):
             predicted_class = self.class_names[c]
             #print(self.class_names[c])
 
-            if predicted_class != 'cup' and predicted_class != 'mouse':
+            if predicted_class != 'person' and predicted_class != 'bicycle':
                 print(predicted_class)
                 continue
 

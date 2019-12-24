@@ -1,7 +1,7 @@
 # YOLOv3 + Deep_SORT
 YOLOv3 + Deep_SORT 实现多类多目标检测(计数)
-<img src="https://github.com/xiaoxiong74/Object-Detection-and-Tracking/output/result.png" width="80%" height="80%"> 
-<img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/OneStage/yolo/yolo_img/output_person_315_1120_s.gif" width="40%" height="40%"> 
+<img src="https://github.com/xiaoxiong74/Object-Detection-and-Tracking/blob/master/output/result.png" width="80%" height="80%"> 
+<img src="https://github.com/xiaoxiong74/Object-Detection-and-Tracking/blob/master/output/st1_vedio_person_output.gif" width="80%" height="80%"> 
 
 ## Requirement
 * OpenCV
@@ -46,16 +46,30 @@ $ python main.py -c [CLASS NAME] -i [INPUT VIDEO PATH]
 $ python main.py -c person -i ./test_video/testvideo.avi
 ```
 
-__5. Can change [deep_sort_yolov3/yolo.py] `__Line 100__` to your tracking object__
+__5. Can change [yolo.py] `__Line 129__` to your tracking object__
 
-*DeepSORT pre-trained weights using people-ReID datasets only for person*
 ```
-    if predicted_class != args["class"]:
-               continue
-    
-    if predicted_class != 'person' and predicted_class != 'car':
-               continue
+       if predicted_class != 'person' and predicted_class != 'bicycle':
+           print(predicted_class)
+           continue
 ```
+and change [main.py] `__Line 108__` and  `__Line 123__` to your tracking object__
+```
+            # __Line 108__`分别保存每个类别的track_id
+            if class_name == ['person']:
+                counter1.append(int(track.track_id))
+            if class_name == ['bicycle']:
+                counter2.append(int(track.track_id))
+                
+            # __Line 123__当前画面中的每个类别单独计数             
+            if class_name == ['person']:
+                i1 = i1 +1
+            else:
+                i2 = i2 +1
+            
+```
+and change some desciption in [main.py] `__Line 146__` and `__Line 175__` 
+
 
 ## Train on Market1501 & MARS
 *People Re-identification model*
